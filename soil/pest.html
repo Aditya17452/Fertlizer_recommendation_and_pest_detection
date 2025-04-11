@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pest Detection</title>
+  <link rel="stylesheet" href="pest_style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pest Detection System</h1>
+    <p>Upload an image to detect pests affecting crops.</p>
+  </header>
+
+  <section class="upload-section">
+    <h2>Upload Image</h2>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <div class="image-preview" id="imagePreview">
+      <p>No image uploaded</p>
+    </div>
+    <button id="detectPest">Detect Pest</button>
+  </section>
+
+  <section class="result-section">
+    <h2>Detection Results</h2>
+    <p><strong>Pest Name:</strong> <span id="pestName">--</span></p>
+    <p><strong>Severity:</strong> <span id="pestSeverity">--</span></p>
+    <p><strong>Recommended Action:</strong> <span id="pestSolution">--</span></p>
+  </section>
+
+  <button id="translateBtn">🌐 Translate</button>
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <!-- <script>
+    window.addEventListener("DOMContentLoaded", () => {
+
+    let mlDetectionResult = null;
+  
+    const fileInput = document.getElementById("imageUpload");
+  
+    fileInput.addEventListener("change", async function (event) {
+        const file = event.target.files[0];
+        console.log( event.target.files)
+  
+      if (!file) {
+        alert("Please upload a valid image file.");
+        return;
+      }
+  
+      // Show preview
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById("imagePreview").innerHTML = `
+          <img src="${e.target.result}" alt="Uploaded Image" style="max-width:100%; max-height:200px;">
+        `;
+      };
+      reader.readAsDataURL(file);
+  
+      // Send file to backend
+      const formData = new FormData();
+      formData.append("image", file);
+  
+      try {
+        const response = await fetch("http://127.0.0.1:5000/detect", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+  
+        if (data.error) {
+          alert("Error: " + data.error);
+          mlDetectionResult = null;
+          return;
+        }
+  
+        console.log("Detection Result:", data);
+        mlDetectionResult = data?.detections[0] || null;
+  
+        if (data.annotated_image) {
+          // Add cache-busting query param
+          document.getElementById("imagePreview").innerHTML = `
+            <img src="${data.annotated_image}?t=${Date.now()}" alt="Detected Image" style="max-width:100%; max-height:200px;">
+          `;
+        }
+      } catch (error) {
+        console.error("Detection Error:", error);
+        // alert("Something went wrong during detection.");
+      }
+  
+      // Reset input so the same image can be uploaded again
+    });
+  
+    document.getElementById("detectPest").addEventListener("click", () => {
+      if (!mlDetectionResult) {
+        alert("No detection result available. Please upload and detect an image first.");
+        return;
+      }
+  
+      document.getElementById("pestName").textContent = mlDetectionResult.class || "--";
+      document.getElementById("pestSeverity").textContent =
+        mlDetectionResult.confidence > 0.7 ? "High" : "Low";
+      document.getElementById("pestSolution").textContent = mlDetectionResult.treatment || "--";
+    });
+});
+
+  </script> -->
+  
+  <!-- New Code Start  -->
+
+<script>
+ 
+  window.addEventListener("DOMContentLoaded", () => {
+    let mlDetectionResult = null;
+
+    const fileInput = document.getElementById("imageUpload");
+
+    fileInput.addEventListener("change", async function (event) {
+      const file = event.target.files[0];
+
+      if (!file) {
+        alert("Please upload a valid image file.");
+        return;
+      }
+
+      // Show preview
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById("imagePreview").innerHTML = `
+          <img src="${e.target.result}" alt="Uploaded Image" style="max-width:100%; max-height:200px;">
+        `;
+      };
+      reader.readAsDataURL(file);
+
+      // Send file to backend
+      const formData = new FormData();
+      formData.append("image", file);
+
+      try {
+        const response = await fetch("http://127.0.0.1:5000/detect", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+
+        if (data.error) {
+          alert("Error: " + data.error);
+          mlDetectionResult = null;
+          return;
+        }
+
+        // console.log("Detection Result:", data);
+        mlDetectionResult = data?.detections[0] || null;
+
+        if (data.annotated_image) {
+          // Add cache-busting query param
+          document.getElementById("imagePreview").innerHTML = `
+            <img src="${data.annotated_image}?t=${Date.now()}" alt="Detected Image" style="max-width:100%; max-height:200px;">
+          `;
+        }
+      } catch (error) {
+        console.error("Detection Error:", error);
+        alert("Something went wrong during detection.");
+      }
+
+      // Reset input so the same image can be uploaded again
+      fileInput.value = ""; // Reset the file input value
+    });
+
+    document.getElementById("detectPest").addEventListener("click", () => {
+      if (!mlDetectionResult) {
+        alert("No detection result available. Please upload and detect an image first.");
+        return;
+      }
+
+      document.getElementById("pestName").textContent = mlDetectionResult.class || "--";
+      document.getElementById("pestSeverity").textContent =
+        mlDetectionResult.confidence > 0.7 ? "High" : "Low";
+      document.getElementById("pestSolution").textContent = mlDetectionResult.treatment || "--";
+    });
+  });
+
+</script>
+
+  <!-- New Code End -->
+
+  
+
+  <!-- Google Translate -->
+ 
+  <!-- <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+</body>
+</html>

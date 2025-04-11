@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+</head>
+<body>
+    <h1>Detection Results</h1>
+    <img src="{{ image_path }}" alt="Annotated Image" style="max-width: 100%; height: auto;">
+    <h2>Pest Details:</h2>
+    <ul>
+        {% for pest in pest_results %}
+        <li>
+            <strong>Class:</strong> {{ pest.class }}<br>
+            <strong>Confidence:</strong> {{ pest.confidence }}<br>
+            <strong>Treatment:</strong> {{ pest.treatment }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go Back</a>
+</body>
+</html>

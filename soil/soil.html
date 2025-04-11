@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Soil Assistant</title>
+    <link rel="stylesheet" href="soil_style.css">
+</head>
+<body>
+
+    <header>
+        <h1> Farmer's Soil Assistant</h1>
+        <p>This application helps farmers find the right fertilizer based on soil conditions.</p>
+    </header>
+
+    <section class="analysis">
+        <h2>Soil Parameter Analysis</h2>
+        <div class="info-box">
+            <h3> How it works</h3>
+            <p>Our system analyzes your soil parameters and weather conditions to provide precise fertilizer recommendations.</p>
+            <ol>
+                <li>Enter your location</li>
+                <li>Input soil parameters</li>
+                <li>Click "Analyze Soil" for recommendations</li>
+            </ol>
+        </div>
+    </section>
+
+
+    <section class="soil">
+        <h2> Soil Parameters</h2>
+        <div class="grid-container">
+    
+            <div>
+                <label for="ph">pH Value</label>
+                <input type="number" id="ph" value="8.4" min="3" max="10" step="0.1" oninput="updateFeedback('phFeedback', this.value)">
+                <small id="phFeedback" class="feedback">Alkaline</small>
+            </div>
+    
+            <div>
+                <label for="potassium">Potassium (mg/kg)</label>
+                <input type="range" id="potassium" min="0" max="100" value="38" oninput="updateSliderValue('potassiumValue', this.value)">
+                <span id="potassiumValue">38</span>
+            </div>
+    
+            <div>
+                <label for="moisture">Moisture Level</label>
+                <select id="moisture">
+                    <option>Low</option>
+                    <option selected>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="nitrogen">Nitrogen (mg/kg)</label>
+                <input type="number" id="nitrogen" value="46">
+            </div>
+    
+            <div>
+                <label for="carbon">Carbon (%)</label>
+                <input type="range" id="carbon" min="0" max="5" value="1" step="0.1" oninput="updateSliderValue('carbonValue', this.value)">
+                <span id="carbonValue">1%</span>
+            </div>
+    
+            <div>
+                <label for="crop">Crop Type</label>
+                <!-- <input type="text" id="crop" value="Potato" placeholder="e.g., Wheat, Corn"> -->
+
+                <select id="cropType">
+                    <option>rice</option>
+                    <option>wheat</option>
+                    <option>Mung Bean</option>
+                    <option>Tea</option>
+                  
+                </select>
+            </div>
+    
+            <div>
+                <label for="phosphorus">Phosphorus (mg/kg)</label>
+                <input type="number" id="phosphorus" value="58">
+            </div>
+    
+            <div>
+                <label for="soilType">Soil Type</label>
+                <select id="soilType">
+                    <option selected>Black soil</option>
+                    <option>Red soil</option>
+                    <option>Sandy soil</option>
+                    <option>loamy soil</option>
+                  
+                </select>
+            </div>
+        </div>
+    
+        <button id="analyzeSoil">Analyze Soil</button>
+    </section>
+    
+    <section class="result">
+        <h2> Analysis Result</h2>
+        <div class="result-box">
+            <p><strong>Recommended Fertilizer:</strong> <span id="fertilizer">MOP</span></p>
+            <p><strong>Remark:</strong> <span id="remark">Soil is alkaline. Consider adding organic matter.</span></p>
+            <p><strong>Recommended Dosage:</strong> <span id="dosage">40 kg/acre</span></p>
+        </div>
+    </section>
+
+                    <script>
+                    function googleTranslateElementInit() {
+                      new google.translate.TranslateElement(
+                        {
+                          pageLanguage: 'en',
+                          includedLanguages: 'en,hi,es,fr,de,zh,ar',
+                          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        },
+                        'google_translate_element'
+                      );
+                    }
+                  
+                    // Show Google Translate when button is clicked
+                    window.addEventListener("DOMContentLoaded", () => {
+                      const translateBtn = document.getElementById("translateBtn");
+                      const translateEl = document.getElementById("google_translate_element");
+                  
+                      if (translateBtn) {
+                        translateBtn.addEventListener("click", () => {
+                          translateEl.style.display =
+                            translateEl.style.display === "none" ? "block" : "none";
+                        });
+                      }
+                    });
+                  </script>
+                  
+                  <!-- Google Translate Library -->
+                  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                  <script>
+                    function updateSliderValue(id, val) {
+                        document.getElementById(id).textContent = val + (id === 'carbonValue' ? '%' : '');
+                    }
+                
+                    function updateFeedback(id, val) {
+                        const feedback = document.getElementById(id);
+                        const pH = parseFloat(val);
+                        if (pH < 6.5) feedback.textContent = "Acidic";
+                        else if (pH > 7.5) feedback.textContent = "Alkaline";
+                        else feedback.textContent = "Neutral";
+                    }
+                
+                    function validateInputs(carbon, nitrogen, potassium, pH) {
+                        try {
+                            if (
+                                parseFloat(carbon) === 0 ||
+                                parseFloat(nitrogen) === 0 ||
+                                parseFloat(potassium) === 0 ||
+                                parseFloat(pH) === 0
+                            ) {
+                                throw new Error("Error in fertilizer recommendation: One or more input values are zero.");
+                            }
+                
+                            // Proceed with recommendation logic here
+                            console.log("All values are valid.");
+                        } catch (error) {
+                            alert(error.message); // Or display it in the DOM
+                            console.error(error.message);
+                        }
+                    }
+                </script>
+
+
+                <script>
+                      document.getElementById("analyzeSoil").addEventListener("click", () => {
+        const carbon = document.getElementById("carbon").value;
+        const nitrogen = document.getElementById("nitrogen").value;
+        const potassium = document.getElementById("potassium").value;
+        const pH = document.getElementById("ph").value;
+
+        validateInputs(carbon, nitrogen, potassium, pH);
+    });
+                </script>
+                    
+
+    <!-- <script src="soil_script.js"></script> -->
+
+</body>
+</html>

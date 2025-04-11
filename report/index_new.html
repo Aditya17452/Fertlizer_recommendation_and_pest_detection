@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Soil Assistant</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            Farmer's Soil Assistant
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#soil-analysis"><i class="fas fa-flask"></i> Soil Analysis</a></li>
+            <li><a href="#pest-detection"><i class="fas fa-bug"></i> Pest Detection</a></li>
+            <li><a href="#report"><i class="fas fa-file-alt"></i> Report</a></li>
+            <li><a href="login.html"><i class="fas fa-user" class="btn"></i> Login</a></li>
+        </ul>
+        <div class="app-info">
+            <p>This application provides fertilizer recommendations based on soil parameters and helps identify pests affecting your crops.</p>
+            <p class="contact">For questions or feedback, please contact support.</p>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+ <div class="container">
+    <div class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h1>Farmer's Soil Assistant</h1>
+            
+            <div class="content-box">
+                <h2>How to use this application:</h2>
+                    <br>
+                <ol class="steps">
+                    <li>
+                        <strong>Soil Analysis:</strong> Enter your soil parameters to get fertilizer recommendations
+                    </li>
+                    <li>
+                        <strong>Pest Detection:</strong> Upload images of your crops or soil to identify pests
+                    </li>
+                    <li>
+                        <strong>Report:</strong> View and download a comprehensive report of your soil health analysis
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-box">
+                <h2>Benefits:</h2>
+                <br>
+                <ol class="benefits">
+                    
+                    <li>
+                        <strong>Get precise fertilizer recommendations based on your soil conditions</strong>
+                    </li>
+
+                    <li> 
+                        <strong>Identify and treat pest infestations early</strong>
+                    </li>
+
+                    <li> 
+                       <strong>Optimize crop yield with scientific soil management</strong> 
+                    </li>
+
+                    <li> 
+                        <strong>Save money by using the right amount of fertilizer</strong>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Soil Analysis Section -->
+        <section id="soil-analysis" class="section">
+            <h1>Soil Analysis</h1>
+            <div class="content-box">
+                <form id="soilForm">
+                    <div class="form-group">
+                        <label for="ph">pH Value:</label>
+                        <input type="number" id="ph" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nitrogen">Nitrogen (mg/kg):</label>
+                        <input type="number" id="nitrogen" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phosphorus">Phosphorus (mg/kg):</label>
+                        <input type="number" id="phosphorus" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="potassium">Potassium (mg/kg):</label>
+                        <input type="number" id="potassium" step="0.1" required>
+                    </div>
+                    <button type="submit" class="btn">Analyze Soil</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Pest Detection Section -->
+        <section id="pest-detection" class="section">
+            <h1>Pest Detection</h1>
+            <div class="content-box">
+                <div class="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Upload image of affected crop or soil</p>
+                    <input type="file" id="pestImage" accept="image/*">
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Section -->
+        <section id="report" class="section">
+            <h1>Report</h1>
+            <div class="content-box" id="report-content">
+                <p>Your comprehensive report will appear here after analysis.</p>
+            </div>
+        </section>
+
+       <!-- login section-->
+       <section id="login" class="section ">
+         <!-- <h1>Login</h1> -->
+       </section>
+    </div>
+
+</div>    
+
+    <script src="script1.js"></script>
+</body>
+</html>

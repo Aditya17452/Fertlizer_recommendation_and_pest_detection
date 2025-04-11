@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+
+    <style>
+     
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f2f6f9, #dbe9f4);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        background-color: white;
+        padding: 2rem 3rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h1 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color:  #4CAF50;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #34495e;
+    }
+
+    input[type="file"] {
+        margin: 1rem 0;
+        padding: 0.4rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        width: 100%;
+    }
+
+    button {
+        background-color: #15c062;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+
+    @media (max-width: 500px) {
+        form {
+            padding: 1.5rem 2rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+    <!-- </style> -->
+
+</head>
+<body>
+    <h1>Upload an Image for Pest Detection</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="image">Choose an image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pest Detection</title> -->
+  <!-- <link rel="stylesheet" href="pest_style.css" /> -->
+
+<!-- <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+.upload-section, .result-section {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+    display: block;
+    margin: 10px auto;
+}
+
+.image-preview {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    background-color: #fff;
+    color: #888;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result-section p {
+    font-size: 18px;
+    color: #333;
+}
+</style>
+
+</head>
+<body>
+  <header>
+    <h1>Pest Detection System</h1>
+    <p>Upload an image to detect pests affecting crops.</p>
+  </header>
+
+  <section class="upload-section">
+    <h2>Upload Image</h2>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <div class="image-preview" id="imagePreview">
+      <p>No image uploaded</p>
+    </div>
+    <button id="detectPest">Detect Pest</button>
+  </section>
+
+  <section class="result-section">
+    <h2>Detection Results</h2>
+    <p><strong>Pest Name:</strong> <span id="pestName">--</span></p>
+    <p><strong>Severity:</strong> <span id="pestSeverity">--</span></p>
+    <p><strong>Recommended Action:</strong> <span id="pestSolution">--</span></p>
+  </section>
+</body>
+</html>  -->

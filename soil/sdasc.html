@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Analysis & Pest Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+        }
+        form {
+            margin-top: 10px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Soil Analysis & Pest Detection</h1>
+        
+        <section class="soil-analysis">
+            <h2>Soil Analysis</h2>
+            <form id="soilForm">
+                <label for="soilImage">Upload Soil Image:</label>
+                <input type="file" id="soilImage" accept="image/*">
+                <button type="submit">Analyze Soil</button>
+            </form>
+            <div id="soilResult"></div>
+        </section>
+        
+        <section class="pest-detection">
+            <h2>Pest Detection</h2>
+            <form id="pestForm">
+                <label for="pestImage">Upload Plant Image:</label>
+                <input type="file" id="pestImage" accept="image/*">
+                <button type="submit">Detect Pests</button>
+            </form>
+            <div id="pestResult"></div>
+        </section>
+    </div>
+    
+    <script>
+        document.getElementById("soilForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("soilResult").innerText = "Processing Soil Analysis...";
+            setTimeout(() => {
+                document.getElementById("soilResult").innerText = "Soil Analysis Completed!";
+            }, 2000);
+        });
+
+        document.getElementById("pestForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("pestResult").innerText = "Processing Pest Detection...";
+            setTimeout(() => {
+                document.getElementById("pestResult").innerText = "Pest Detection Completed!";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

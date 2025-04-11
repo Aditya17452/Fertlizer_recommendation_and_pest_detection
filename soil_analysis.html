@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../soil_analysis_style.css"> 
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+   
+</head>
+<body>
+               
+                <nav class="sidebar">
+                    <div class="logo">
+                        <i class="fas fa-leaf"></i>
+                        Farmer's Soil Assistant
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#Home" class="active"><i class="fas fa-home" class = "btn"></i> Home</a></li>
+                        <li><a href="test.html"><i class="fas fa-flask"></i> Soil Analysis</a></li>
+                        <li><a href="http://127.0.0.1:5000/"><i class="fas fa-bug"></i> Pest Detection</a></li>
+                        <li><a href="#report"><i class="fas fa-file-alt"></i> Report</a></li>
+                        <li><a href="login.html"><i class="fas fa-user" class="btn"></i> Login</a></li>
+
+                        <li id="google-login-li">
+                            <a href="javascript:void(0)" id="googleLogin">
+                              <i class="fab fa-google"></i> Sign in with Google
+                            </a>
+                            <a href="javascript:void(0)" id="logout" style="display: none;">
+                              <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                          </li>
+                          <li id="user-greeting" style="padding-left: 20px; font-weight: bold;"></li>
+
+                          <!-- Language Translate Button -->
+                        <li>
+                           <a href="javascript:void(0);" id="translateBtn">
+                           <i class="fas fa-globe"></i> Translate
+                           </a>
+                        </li>
+  
+  <!-- Hidden Google Translate Element -->
+  <li>
+    <div id="google_translate_element" style="display: none; padding-left: 20px;"></div>
+  </li>
+  
+                    </ul>
+                    <div class="app-info">
+                        <p>This application provides fertilizer recommendations based on soil parameters and helps identify pests affecting your crops.</p>
+                        <p class="contact">For questions or feedback, please contact support.</p>
+                    </div>
+                </nav>
+            
+                <!-- Main Content -->
+             <div class="container">
+                <div class="main-content">
+                    <!-- Home Section -->
+                    <section id="home" class="section active">
+                        <div class="section_header">
+                            <h1>Farmer's Soil Assistant</h1>
+                       </div>
+                        
+                        <div class="content-box">
+                            <h2>How to use this application:</h2>
+                                <br>
+                            <ol class="steps">
+                                <li>
+                                    <strong>Soil Analysis:</strong> Enter your soil parameters to get fertilizer recommendations
+                                </li>
+                                <li>
+                                    <strong>Pest Detection:</strong> Upload images of your crops or soil to identify pests
+                                </li>
+                                <li>
+                                    <strong>Report:</strong> View and download a comprehensive report of your soil health analysis
+                                </li>
+                            </ol>
+                        </div>
+            
+                        <div class="content-box">
+                            <h2>Benefits:</h2>
+                            <br>
+                            <ol class="benefits">
+                                
+                                <li>
+                                    <strong>Get precise fertilizer recommendations based on your soil conditions</strong>
+                                </li>
+            
+                                <li> 
+                                    <strong>Identify and treat pest infestations early</strong>
+                                </li>
+            
+                                <li> 
+                                   <strong>Optimize crop yield with scientific soil management</strong> 
+                                </li>
+            
+                                <li> 
+                                    <strong>Save money by using the right amount of fertilizer</strong>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- noification -->
+                    <div class="soil-info-card">
+                        <!-- <div class="imp">
+                           <h3 >Impotant</h3>
+                       </div> -->
+                        <h3>🌱 Know Your Soil, Grow Better Crops! 🌱</h3>
+                        <p>
+                          For fertilizer recommendations, we need values of <strong>Nitrogen (N)</strong>, <strong>Phosphorus (P)</strong>, <strong>Potassium (K)</strong>, <strong>Organic Carbon</strong>, and <strong>pH level</strong>.
+                        </p>
+                      
+                        <h4>✅ How Can You Get These Values? </h4>
+                        <h4>  1.  By Lab Test Of Soil</h4>
+
+                        <h4>2. Top Soil Testing Kits You Can Order Online</h4>
+                        
+                           
+                          <!-- <a href="https://www.amazon.in/ICHEM-Testing-Nitrogen-Phosphorus-Potash/dp/B0DL3FS9YJ/ref=sr_1_3?crid=TB13S9KHC19O&dib=eyJ2IjoiMSJ9.49htWVqWhHxvjn6fJcR_0uQuQRsQyEjqAwI5yhXpXuUCH5HhxkCnOdaqkzFoMOhOR8KcmLQG_KCwM0YwwU1wtOzAdyA31Nv52QA5o5_nga7T92g8-5BwG9W5efihIHbJ-vf03MJMHFLAZSc2Qkz-QaISM8fuYz4wNX2J0Xm1fvw9OBAhk4CVO0njvncXmEMduA9MVsQ0SbKBCm0O3ZC6OtIXNsgrdydTHZk9VLLnwVwcPssj7Fsxh9XqYq0yyc609RXUVWFoNyWxtOLX432Jrx9ehCOolNK5KUPQXcUHv_U.yZDpIWhAEUgS9Aq_NDWSuzyxgpO2QlD9FkUUxNzJPFM&dib_tag=se&keywords=Labcare+Soil+Testing+Kit+Measures+N%2C+P%2C+K%2C+pH+%26Suitable+for+all+soil+types&nsdOptOutParam=true&qid=1744018515&sprefix=labcare+soil+testing+kit+measures+n%2C+p%2C+k%2C+ph+%26suitable+for+all+soil+types%2Caps%2C292&sr=8-3"></a>
+
+                          <a href=" https://www.amazon.in/SSUCA-Soil-Testing-Meter-Agriculture/dp/B0DMWBSCW7/ref=sr_1_4?crid=1W943A6SK1C1N&dib=eyJ2IjoiMSJ9.4EOcbrevLIijy8-WLq3hmBKHo-YOGpSnvflIESozJb6t-MY9UDzFF_zeyweTvvkLQ700Jx6smoIti53RnCiqQCbHurVUnD2RXu_Hznngr7JB8eca4_LU_CJPoMxxyyq-mnn2gGR9W28QmCj4ac1ImHlLntgCfGAt4mLJ9WChqZ4scOIt78WRZnHrw8RgBHz7x_ZIIUV1ysilXFv2_sI9RVwfuf29gJLWhD3CceXFZC39lzHbgvnKyBYxkr_QehxsL1aY0Sf7SRdg7nfcOHXf0TfJ4iENmOkZ0fNZIOVlu9k.1jpvkncZqU5p31Cl1yh1ppJi8tqQpTVNVoJ0vEV3IQA&dib_tag=se&keywords=soil+testing+kits+for+suggesting+n%2Cp%2Ck+values&qid=1744018110&sprefix=soil+testing+kits+for+suggesting+n%2Cp%2Ck+values%2Caps%2C231&sr=8-4"></a>
+                          <li>🌱 <strong>XactoPlus Professional Soil Test Kit</strong><br>✅ High accuracy, reusable kit<br>✅ Ideal for regular farm use<br>🔗 <a href=" https://www.amazon.in/DOCTOR-Moisture-Gardening-Outdoors-Accuracy/dp/B0BZ8FRQH1/ref=sr_1_1_sspa?crid=2JGA2ZV81K0MP&dib=eyJ2IjoiMSJ9.J7L3v4xg_MTDlvZTPMQzS4JxzDligEoxP0QJeD03f61qVNmMcCugjqGNwRTnqdfnPAWSjNH62WgHdQNHX5c4hA_UII0DjSF9TpI6ewdaUJ13yj4FqN9ra1PpQ88oI5XzTwwz-PaKsWHKwnj8aNYLo4X9nexJRghNrusiejVoZ6mey1xgyWb-GYn8C4J82ITXdzCGBKvxITXMTrYH9JsEr4-NW-zJZYp3o6SyQKtFFCSAk92se8hO6xKr4e2avNeeCcw-mJPBmutt5-VzKneMT9f4AwXH-92TPpD8zrHwyJU._lCeYZM2TIv93LMb19Aa9-W_wj7ORh3EW07FSAZfVB0&dib_tag=se&keywords=soil+testing+kits&qid=1744018338&sprefix=soil+testing+kits%2Caps%2C243&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">Buy on Amazon</a></li>
+                        </ul> -->
+                      </div>
+            
+                    <!-- Soil Analysis Section -->
+                    <section id="soil-analysis" class="section">
+                       
+                    </section>
+            
+                    <!-- Pest Detection Section -->
+                    <section id="pest-detection" class="section">
+                      
+                    </section>
+            
+                    <!-- Report Section -->
+                    <section id="report" class="section">
+                        <h1>Report</h1>
+                        <div class="content-box" id="report-content">
+                            <p>Your comprehensive report will appear here after analysis.</p>
+                        </div>
+                    </section>
+            
+                   <!-- login section-->
+                   <section id="login" class="section ">
+                     <!-- <h1>Login</h1> -->
+                   </section>
+                </div>
+            
+            </div> 
+            <br>
+               <br>
+        <div class="company-container">
+            <h2 class="company-title">Trusted by the best</h2>
+            <div class="company-grid">
+                <div class="company-logo">
+                    <img  src="img/Google-Black-and-White.png" class="svg-img"/>
+                    <span class="logo-txt">Google</span>
+                </div>
+                <div class="company-logo">
+                    <img  src="img/Emblem_of_India.svg.jpg" class="svg-img"/>
+                    <span class="logo-txt">Government of India</span>
+                </div>
+                <div class="company-logo">
+                    <img  src="img/stare.jpg" class="svg-img"/>
+                    <span class="logo-txt">States Government</span>
+                </div>
+                <div class="company-logo">
+                    <img  src="img/rurakdev.png" class="svg-img"/>
+                    <span class="logo-txt">Rural Ministry</span>
+                </div>
+            </div>
+        </div>
+        <div class="feature-container">
+            <div class="feature-content">
+                <div class="main-info">
+                    <h2 class="main-title">
+                        Our competitive advantage
+                    </h2>
+                    <p class="main-description">
+                        This is a section of some simple filler text, also known as 
+                        placeholder text. It shares some characteristics of real
+                         written text but is random or otherwise generated.
+                    </p>
+                </div>
+                
+                    <!-- card 1 -->
+                 <!-- <div class="feature-grid">      
+                   
+                   
+                    <div class="feature-card">
+                        <a href="https://www.myscheme.gov.in/schemes/sak-dip">
+                      
+                        <div class="icon-container">
+                            <img class="feature-svg" src="skill.jpg"/>
+                        </div>
+                        <div class="feature-info">
+                            <div class="feature-title">
+                             
+                                    Skill & Development   
+                                
+                            </div>
+                            <div class="feature-description">
+                                Offer tailored learning experiences through AI 
+                                and machine learning to cater to individual student needs.
+                            </a>
+                               
+                            </div>
+                       
+                        </div>
+                    </div> -->
+                    <!-- card 2 -->
+                     
+                    <!-- <div class="feature-card">
+                        <a href="https://www.myscheme.gov.in/schemes/sbm-g-i">
+                            
+                        <div class="icon-container">
+                            <img class="feature-svg" src="health.webp"/>
+                        </div>
+                        <div class="feature-info">
+                            <div class="feature-title">
+                               Health & Wellness
+                            </div>
+                            <div class="feature-description">
+                                Provide high-quality education at an affordable
+                                 price point, making it accessible to a broader audience.
+                                </a>
+                            </div>
+                        </div>
+                    </div>  -->
+
+                      <div class="container1">
+        <h1>🌾 Farmer Weather Assistance 🌦️</h1>
+        <p>Get real-time weather updates for your farm.</p>
+
+        <div class="input-container1">
+            <input type="text" id="city" placeholder="Enter City Name">
+            <input type="text" id="state" placeholder="Enter State Name (Optional)">
+            <input type="text" id="country" placeholder="Enter Country Name">
+            <button onclick="fetchWeather()">Get Weather</button>
+        </div>
+
+        <div id="weatherCard" class="weather-card hidden">
+            <h2>🌤️ Weather Details</h2>
+            <p><strong>🌡 Temperature:</strong> <span id="temperature"></span>°C</p>
+            <p><strong>💧 Humidity:</strong> <span id="humidity"></span>%</p>
+            <p><strong>🌧 Rainfall:</strong> <span id="rainfall"></span> mm</p>
+        </div>
+    </div>
+
+                                    <!-- card 3 -->
+                <!-- <div class="feature-card">
+                    <a href="https://www.myscheme.gov.in/schemes/pm-kusum
+                    ">
+                    
+                    <div class="icon-container">
+                        <img class="feature-svg" src="banking.jpg"/>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">
+                           Banking & Finance Services
+                        </div>
+                        <div class="feature-description">
+                            Collaborate with well-known companies and institutions to offer accredited 
+                            courses and certifications, adding credibility to your offerings.
+                        </a>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- card 4 -->
+                <div class="feature-card">
+                    <a href="https://www.myscheme.gov.in/schemes/llbip
+                    ">
+                    
+                    <div class="icon-container">
+                        <img class="feature-svg" src="img/framin.jpg"/>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">
+                           Hypophonic Farming
+                        </div>
+                        <div class="feature-description">
+                            Hypophonic farming enables efficient crop production by delivering essential nutrients directly
+                            through water-based fertilizers. This method ensures faster growth, higher yield, and minimal resource
+                             usage without soil.
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 5 -->
+                <div class="feature-card">
+                    <a href="https://www.myscheme.gov.in/schemes/sjpfsgc
+                    ">
+                    
+                    <div class="icon-container">
+                        <img class="feature-svg" src="img/satellite.jpg"/>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">
+                            Spectroscopy
+                        </div>
+                        <div class="feature-description">
+                            Our innovative system harnesses the power of satellite-based spectroscopy to analyze soil nutrient 
+                            composition without physical sampling. By integrating this data with real-time farmer inputs, we 
+                            deliver accurate, personalized fertilizer recommendations—enhancing yield and promoting precision agriculture
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 6 -->
+                <div class="feature-card">
+                    <a href="https://www.myscheme.gov.in/schemes/pmay-g">
+                    
+                   
+                    <div class="icon-container">
+                        <img class="feature-svg" src="img/improve_farming.jpg"/>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">
+                           Improve Farming
+                        </div>
+                        <div class="feature-description">
+                            Transforming traditional farming with technology — our solution uses AI-driven analysis and satellite-based
+                            spectroscopy to understand soil health and recommend the right fertilizers. This innovation empowers farmers
+                            with data-backed decisions, boosting productivity, reducing waste, and driving sustainable agriculture forward.
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-container">
+        <div class="testimonial-content">
+            <h2 class="testimonial-title">
+                Our Ministers
+            </h2>
+            <div class="testimonial-grid">  
+               
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Giriraj Singh is an Indian politician and the Minister of Rural Development and Panchayati
+                         Raj Department in the 23rd Ministry of the Republic of India with a cabinet minister rank. 
+                        He is the Member of Parliament from the Begusarai Loksabha constituency in the 17th Lok Sabha
+                        
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="img/Shivraj-Singh-Chouhan-.jpg"/>
+                    </div>
+                    <div class="testimonial-details">
+               <h3 class="testimonial-name"> 
+                        Shivraj Singh Chauhan
+                        </h3>
+                        <p class="testimonial-desc">
+                            Minister for Rural Development and Agriculture & Farmers Welfare
+                        </p>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Smriti Zubin Irani is an Indian politician and former actress, fashion model and television producer. 
+                        She has been Minister of Women and Child Development since 2019, and also Minister of Minority Affairs since 2022
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="img/chandra_sekhar.jpg"/>
+                    </div>
+                    <div class="testimonial-details">
+               <h3 class="testimonial-name"> 
+                Dr. Chandra Sekhar Pemmasani
+                        </h3>
+                        <p class="testimonial-desc">
+                            Minister of State for Rural Development and Communications
+                        </p>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        “ Nitin Jairam Gadkari is an Indian politician from Maharashtra who is the current
+                        Minister for Road Transport & Highways in the Government of India. He is also 
+                        the longest serving Minister for Road Transport & Highways currently running his tenure for over nine years.”
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="img/kamlesh_paswan.cms"/>
+                    </div>
+                    <div class="testimonial-details">
+                        <h3 class="testimonial-name"> 
+                            Shri Kamlesh Paswan
+                        </h3>
+                        <p class="testimonial-desc">
+                            Minister of State for Rural Development
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-container">
+        <div class="newsletter-content">
+
+             <!-- left part  -->
+             <!-- <div class="news-left"> -->
+                <!-- <img src="new-update-sign-or-stamp-vector-33796052.jpg" loading="lazy" alt="news-img"/> -->
+            <!-- </div> -->
+            <!-- right part -->
+            <div class="news-right">
+                <div class="news-info">
+                    <h2 class="news-title">Get the latest updates</h2>
+                    
+                    <p class="news-desc">Sign up for our newsletter</p>
+                </div>
+                <form class="news-form">
+                    <input class="news-email" placeholder="Email" />
+                    <button class="news-send-button">
+                        Send
+                    </button>
+                </form>
+                <div class="privacy-policy">
+                    By signing up to our newsletter you agree to our
+                    <a class="news-link">
+                        Terms of Service
+                    </a>
+                    and
+                    <a class="news-link">
+                        Privacy policy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <footer class="footer">
+
+            <div class="footer-top">
+
+                <div class="comp-logo">
+                    <a class="logo-link" href="#">
+                        <img class="logo-svg" src="img/Emblem_of_India.svg.jpg"/>
+                        RuralWelfare
+                    </a>
+                </div>
+                <p class="filler-text">Seamless Learning for Brighter Futures.</p>
+                <div class="social">
+                        <a class="social-link" href="https://www.instagram.com/">
+                            <img src="img/instagram.png" class="social-icon" />
+                        </a>
+                        <a class="social-link" href="https://www.facebook.com/">
+                            <img src="img/facebook-7442092_960_720.webp" class="social-icon" />
+                        </a>
+                        <a class="social-link" href="https://twitter.com/">
+                            <img src="img/Twitter-Logo-PNG.png" class="social-icon" />
+                        </a>
+                        <a class="social-link" href="https://www.google.com/">
+                            <img src="img/Google-Black-and-White.png" class="social-icon" />
+                        </a>
+                </div>
+            </div>
+
+            <div class="footer-grid">
+                        <!-- column 1 -->
+                <div class="footer-grid-column">
+                            <div class="footer-grid-heading">
+                                Products
+                            </div>
+                            <ul class="footer-links-list">
+                                <li>
+                                    <a href="#overview" class="footer-link">Overview</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Solutions</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Customers</a>
+                                </li>
+                            </ul>
+                </div>
+                        <!-- column 2 -->
+                <div class="footer-grid-column">
+                            <div class="footer-grid-heading">
+                                Company
+                            </div>
+                            <ul class="footer-links-list">
+                                <li>
+                                    <a href="#overview" class="footer-link">About</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Investor Relations</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Press</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Blog</a>
+                                </li>
+                            </ul>
+                </div>
+                        <!-- column 3 -->
+                <div class="footer-grid-column">
+                            <div class="footer-grid-heading">
+                                Support
+                            </div>
+                            <ul class="footer-links-list">
+                                <li>
+                                    <a href="#overview" class="footer-link">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">Chat</a>
+                                </li>
+                                <li>
+                                    <a href="#overview" class="footer-link">FAQ</a>
+                                </li>
+                            </ul>
+                </div>           
+                                        <!-- column 4 -->
+                                        <div class="footer-grid-column">
+                                            <div class="footer-grid-heading">
+                                                Legal
+                                            </div>
+                                            <ul class="footer-links-list">
+                                                <li>
+                                                    <a href="#overview" class="footer-link">Terms of Service</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#overview" class="footer-link">Privacy Policy</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#overview" class="footer-link">Cookie Settings</a>
+                                                </li>
+                
+                                            </ul>
+                                </div>
+                            </div>
+                        </footer>
+                        <div class="footer-copyright">
+                            © 2021 - Present StudySync. All rights reserved.
+                        </div>
+                    </div>
+
+                    <script src="../soil_analysis_script.js"></script>   
+                    <!-- <script src="script1.js"></script> -->
+                       <!-- Firebase SDKs -->
+                       <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+                       <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+                       
+                       <script>
+                        const firebaseConfig = {
+                          apiKey: "AIzaSyC_P555YrLw6x6JW8tl8MLnP7v3qZiOm1o",
+                          authDomain: "sakshamproject-8a0d4.firebaseapp.com",
+                          projectId: "sakshamproject-8a0d4",
+                          storageBucket: "sakshamproject-8a0d4.appspot.com",
+                          messagingSenderId: "203540456797",
+                          appId: "1:203540456797:web:18640be9ebd6918b0334b4",
+                          measurementId: "G-DWNRS6C9M2"
+                        };
+                      
+                        firebase.initializeApp(firebaseConfig);
+                        const auth = firebase.auth();
+                        const provider = new firebase.auth.GoogleAuthProvider();
+                      
+                        window.addEventListener("DOMContentLoaded", () => {
+                          const loginBtn = document.getElementById("googleLogin");
+                          const logoutBtn = document.getElementById("logout");
+                          const userGreeting = document.getElementById("user-greeting");
+                      
+                          if (loginBtn) {
+                            loginBtn.addEventListener("click", () => {
+                              auth.signInWithPopup(provider)
+                                .then((result) => {
+                                  const user = result.user;
+                                  userGreeting.innerText = `Hello, ${user.displayName}`;
+                                  loginBtn.style.display = "none";
+                                  logoutBtn.style.display = "inline-block";
+                                })
+                                .catch((error) => console.error("Login Error:", error));
+                            });
+                          }
+                      
+                          if (logoutBtn) {
+                            logoutBtn.addEventListener("click", () => {
+                              auth.signOut().then(() => {
+                                userGreeting.innerText = "";
+                                loginBtn.style.display = "inline-block";
+                                logoutBtn.style.display = "none";
+                              });
+                            });
+                          }
+                      
+                          auth.onAuthStateChanged((user) => {
+                            if (user) {
+                              userGreeting.innerText = `Hello, ${user.displayName}`;
+                              loginBtn.style.display = "none";
+                              logoutBtn.style.display = "inline-block";
+                            } else {
+                              userGreeting.innerText = "";
+                              loginBtn.style.display = "inline-block";
+                              logoutBtn.style.display = "none";
+                            }
+                          });
+                        });
+                      </script>
+
+
+                <!-- language traslator script  -->
+                <script>
+                    function googleTranslateElementInit() {
+                      new google.translate.TranslateElement(
+                        {
+                          pageLanguage: 'en',
+                          includedLanguages: 'en,hi,es,fr,de,zh,ar',
+                          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        },
+                        'google_translate_element'
+                      );
+                    }
+                  
+                    // Show Google Translate when button is clicked
+                    window.addEventListener("DOMContentLoaded", () => {
+                      const translateBtn = document.getElementById("translateBtn");
+                      const translateEl = document.getElementById("google_translate_element");
+                  
+                      if (translateBtn) {
+                        translateBtn.addEventListener("click", () => {
+                          translateEl.style.display =
+                            translateEl.style.display === "none" ? "block" : "none";
+                        });
+                      }
+                    });
+                  </script>
+                  
+                  <!-- Google Translate Library -->
+                  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                  
+                       
+</body>
+</html>
