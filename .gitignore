@@ -1,0 +1,18 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Runtime uploads and detection results
+uploads/*
+!uploads/insect.jpg
+!uploads/insect1.jpg
+!uploads/red_spider.jpg
+outputs/
+static/*
+!static/.gitkeep
+
+# Editor artifacts
+tempCodeRunnerFile.py
+.vscode/

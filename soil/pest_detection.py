@@ -137,7 +137,9 @@ from ultralytics import YOLO
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-model = YOLO("model/best.pt")
+# Trained YOLO weights live at the repository root (best.pt)
+MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "best.pt")
+model = YOLO(MODEL_PATH)
 
 PEST_TREATMENTS = {
     "aphids": "Use insecticidal soap or neem oil. Encourage natural predators like ladybugs.",
